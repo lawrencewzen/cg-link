@@ -20,27 +20,26 @@ Claude Code 不改业务代码，只读代码和审代码。写代码、跑测�
 
 开始前确认：Cursor 账号能用 Grok Bot 和 cloud agent，并且 Cursor 里已经连好 GitHub。本机要有 Node.js 22+、Git，以及登录好的 [GitHub CLI](https://cli.github.com)。
 
-**1. 让 Claude Code 安装**
+**1. 在 Grok Bot 里建一个专用 Bot**
 
-把这段发给 Claude Code（`<Bot 名>` 换成你给 Bot 起的名字）：
+打开 Grok Bot 应用，新建一个 Bot，名字随你起。把 [`skill/protocol.md`](skill/protocol.md) 的全文粘进它的指令。这个 Bot 只用来接 Claude Code 的活。
+
+**2. 让 Claude Code 安装**
+
+把这段发给 Claude Code（`<Bot 名>` 换成第 1 步的名字，要完全一致）：
 
 ```
 帮我安装 cg-link：https://github.com/lawrencewzen/cg-link
 克隆下来，运行 ./install.sh "<Bot 名>"。
-装完把 protocol.md 的全文发给我，我要贴到 Grok Bot 里。
 ```
 
-**2. 登录 Cursor**
+**3. 登录 Cursor**
 
 ```
 ! ~/.cg-link/bridge/node_modules/.bin/bdk login
 ```
 
 浏览器里点授权。
-
-**3. 在 Grok Bot 里建一个专用 Bot**
-
-名字和第 1 步的 `<Bot 名>` 完全一致，把 `protocol.md` 的内容粘进它的指令。
 
 搭完后可以这样测连通（不会给 Bot 发消息）：
 
